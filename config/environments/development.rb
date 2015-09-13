@@ -38,4 +38,20 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  host = "localhost:3000"  
+
+require "smtp_tls"
+
+ActionMailer::Base.raise_delivery_errors = false
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :domain => 'gmail.com',
+  :user_name => "translucentapp@gmail.com",
+  :password =>  "civetshit",
+  :authentication =>  :plain
+}
+
 end

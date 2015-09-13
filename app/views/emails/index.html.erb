@@ -1,0 +1,7 @@
+<% if @coworker %>
+<div><%=link_to "send your boss the weekly email", new_email_path %></div>
+<% else %>
+
+<%= link_to "Click to start by adding your boss's email", new_coworker_path %>
+
+<% end %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @email.addressee_name %>,</h1>
+    <p>
+      After reviewing my activities here is my plan for the week in order of priority. Let me know if you think I should re-prioritize:
+    </p>
+    <p>
+    	Planned Major Activities for the week
+    </p>
+    <ol>
+    	<% @major_projects.each do |project| %>
+    	<li>
+    		<%=project.name%>
+    	</li>
+    	<% end %>
+    </ol>
+
+    <p>
+    	Open items that I will look into, but won’t get finished this week:
+    </p>
+
+
+    <p>Let me know if you have any comments. Thank you!</p>
+
+	— <%= @user.email %>
+  </body>
+</html>
