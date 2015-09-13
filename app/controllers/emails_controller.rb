@@ -3,7 +3,8 @@ class EmailsController < ApplicationController
 	before_filter :authorize
 
 	def index
-		@emails = Email.all
+		@user = current_user if current_user
+		@emails = @user.emails
 		@coworker = Coworker.first
 	end
 
