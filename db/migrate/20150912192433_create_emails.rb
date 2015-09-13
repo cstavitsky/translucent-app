@@ -7,7 +7,8 @@ class CreateEmails < ActiveRecord::Migration
     	t.string :subject_line_end_week
     	t.string :addressee_name
     	t.string :addressee_email
-        t.string :projects
+        t.string :major_projects
+        t.string :open_projects
     end
   end
 end

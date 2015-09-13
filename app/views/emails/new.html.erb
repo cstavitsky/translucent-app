@@ -19,8 +19,8 @@
 	<p>Email Recipient: <%= f.text_field :addressee_email, :value => @user.coworkers.first.email, :id => 'boss-email', :onkeyup => "bossEmailKeyPress()", :onkeypress => "bossEmailKeyPress()" %></p>
   <p>Email Subject Line: <%= f.text_field :subject_line_beginning_week, :value => "Work plan for this week", :id => 'subject-line', :onkeyup => "subjectLineKeyPress()", :onkeypress => "subjectLineKeyPress()" %></p>
 	<p>Recipient name: <%= f.text_field :addressee_name, :value => @user.coworkers.first.first_name, :id => 'boss-name', :onkeyup => "bossNameKeyPress()", :onkeypress => "bossNameKeyPress()" %></p>
-  <p>Major Projects (separate by comma): <%= f.text_field :projects, :id => 'text'  %></p>
-  <p>Open Projects (separate by comma): <%= f.text_field :projects, :id => 'text2'  %></p>
+  <p>Major Projects (separate by comma): <%= f.text_field :major_projects, :id => 'text'  %></p>
+  <p>Open Projects (separate by comma): <%= f.text_field :open_projects, :id => 'text2'  %></p>
 	
   <p>
   	<%= f.submit "Send email" %>

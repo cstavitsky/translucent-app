@@ -17,14 +17,16 @@ class EmailsController < ApplicationController
 	end
 
 	def create
+		p params
 		@email = Email.new(email_params)
 		@recipient = Coworker.find_by(email: @email.addressee_email)
-		@email.recipient_id = @recipient.id
+		@email.recipient_id = @recipient.id if @recipient
 		@email.sender_id = current_user.id
 		@user = User.find(@email.sender_id)
-		@major_projects = Project.where(user_id: 1) 
+		@major_projects = @email.major_projects.split(",").map{|project| project.strip}
+		@open_projects = @email.open_projects.split(",").map{|project| project.strip}
 		if @email.save
-			BossMailer.beginning_week_email(@email, @major_projects, @user).deliver_now
+			BossMailer.beginning_week_email(@email, @major_projects, @open_projects, @user).deliver_now
 			redirect_to :action => :index
 		else
 			render 'new'
@@ -33,6 +35,6 @@ class EmailsController < ApplicationController
 
 	private
 	def email_params
-    	params.require(:email).permit(:addressee_name, :addressee_email, :subject_line_beginning_week, :sender_id, :recipient_id)
+    	params.require(:email).permit(:addressee_name, :addressee_email, :subject_line_beginning_week, :sender_id, :recipient_id, :major_projects, :open_projects)
   	end
 end

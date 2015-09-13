@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20150912192433) do
     t.string  "subject_line_end_week"
     t.string  "addressee_name"
     t.string  "addressee_email"
-    t.string  "projects"
+    t.string  "major_projects"
+    t.string  "open_projects"
   end
 
   create_table "projects", force: :cascade do |t|
