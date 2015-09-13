@@ -1,7 +1,9 @@
-<%= form_for @coworker, url: {action: "create"} do |f| %>
-<p>First name (or however else you'd like them to be addressed in the email): <%= f.text_field :first_name %></p>
-<p>Boss's email address: <%= f.text_field :email %></p>
- <p>
-  	<%= f.submit "Save Boss Information" %>
-  </p>
-<% end %>
+<div class="form-container">
+	<%= form_for @coworker, url: {action: "create"} do |f| %>
+	<p>First name (or however else you'd like them <br>to be addressed in the email): <%= f.text_field :first_name %></p>
+	<p>Boss's email address: <%= f.text_field :email %></p>
+	 <p>
+	  	<%= f.submit "Save Boss Information" %>
+	  </p>
+	<% end %>
+</div>
