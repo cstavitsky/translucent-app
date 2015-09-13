@@ -10,6 +10,8 @@
 
 <!-- if there are no projects, display a link to show jQuery-hidden, ajaxified form to create new projects -->
 
+<% if sat_through_wed %>
+
 <div class="form-container">
 <p><b>Fill in the following fields to autogenerate an email about your plans for this week. </b></p>
 
@@ -54,6 +56,57 @@
       </ol>
   
   <p>Let me know if you have any comments. Thank you!</p>
-  <%=@user.name%>
+  -<%=@user.name.capitalize%>
+  <p>Sent via <a href="#">Translucent</a></p>
+
+<% elsif thurs_through_sat %>
+
+  <div class="form-container">
+<p><b>Fill in the following fields to autogenerate an email about what you already completed this week. </b></p>
+
+<p><b>Once you hit send, the email will be sent to your boss. </b></p>
+
+<%= form_for @email, url: {action: "create"}, html: {class: "email_form"} do |f| %>
+  <p>Email Recipient: <%= f.text_field :addressee_email, :value => @user.coworkers.first.email, :id => 'boss-email', :onkeyup => "bossEmailKeyPress()", :onkeypress => "bossEmailKeyPress()" %></p>
+  <p>Email Subject Line: <%= f.text_field :subject_line_end_week, :value => "Completed tasks and progress this week", :id => 'subject-line', :onkeyup => "subjectLineKeyPress()", :onkeypress => "subjectLineKeyPress()" %></p>
+  <p>Recipient name: <%= f.text_field :addressee_name, :value => @user.coworkers.first.first_name, :id => 'boss-name', :onkeyup => "bossNameKeyPress()", :onkeypress => "bossNameKeyPress()" %></p>
+  <p>COMPLETED Projects (separate by comma): <%= f.text_field :major_projects, :id => 'text'  %></p>
+  <p>OPEN Projects (separate by comma): <%= f.text_field :open_projects, :id => 'text2'  %></p>
+  
+  <p>
+    <%= f.submit "Send email" %>
+  </p>
+<% end %>
+</div>
+    
+    <h3>Email preview:</h3>
+
+     <p>
+          <span id="boss-email-output">(To: <%=@user.coworkers.first.email%>) </span>
+    </p>
+
+    <p>
+          <span id="subject-line-output">(Subject line: Completed tasks and progress this week) </span>
+    </p>
+
+    <span id="boss-name-output">Hi <%=@user.coworkers.first.first_name%>, </span>
+    
+    <p>Here's a quick update for the week,</p>
+
+    <h4>Completed this week:</h4>
+      <ol>
+          <div id="output"></div>
+      </ol>
+
+    <h4>Open items:</h4>
+      <ol>
+          <div id="output2"></div>
+      </ol>
+  
+  <p>That's all for now. Have a great weekend!</p>
+  -<%=@user.name.capitalize%>
+  <p>Sent via <a href="#">Translucent</a></p>
+
+<% end %>
 
 <!--else display -->

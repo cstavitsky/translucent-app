@@ -1,5 +1,26 @@
 <% if @coworker %>
-<div><%=link_to "send your boss the weekly email", new_email_path %></div>
+<% if sat_through_wed %>
+	<div id="send-weekly-email"><h1><%=link_to "beginning of the week? send your boss your plans", new_email_path %></h1></div>
+
+<% elsif thurs_through_sat %>
+<div id="send-weekly-email"><h1><%=link_to "end of the week? tell your boss what you got done", new_email_path %></h1></div>
+
+<% end %>
+
+
+<% @emails.reverse.each do |email| %>
+	<div class="email-container">
+		<h3>You sent an email to <%=email.addressee_name%> on <%=email.created_at.strftime("%m/%d")%></h3>
+			<li>
+				Major projects for the week were: <%=email.major_projects%>
+			</li>
+
+			<li>
+				Open projects for the week were: <%=email.open_projects%>
+			</li>
+
+		<% end %>
+	</div>
 <% else %>
 
 <%= link_to "Click to start by adding your boss's email", new_coworker_path %>

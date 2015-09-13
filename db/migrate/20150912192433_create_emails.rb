@@ -9,6 +9,7 @@ class CreateEmails < ActiveRecord::Migration
     	t.string :addressee_email
         t.string :major_projects
         t.string :open_projects
+        t.timestamps
     end
   end
 end

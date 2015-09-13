@@ -4,3 +4,17 @@
 	text-align: center;
 	margin: 0 auto;
 }
+
+.email-container{
+	border: 1px dotted black;
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#send-weekly-email{
+	color: blue;
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+}

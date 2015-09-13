@@ -6,10 +6,10 @@
   <body>
     Hi <%= @email.addressee_name %>,
     <p>
-      After reviewing my activities here is my plan for the week in order of priority. Let me know if you think I should re-prioritize:
+      Here's a quick update for the week:
     </p>
     <p>
-    	Planned Major Activities for the week
+    	Completed this week:
     </p>
     <ol>
     	<% @major_projects.each do |project| %>
@@ -20,7 +20,7 @@
     </ol>
 
     <p>
-    	Open items that I will look into, but won’t get finished this week:
+    	Open items:
     </p>
     <ol>
       <% @open_projects.each do |project| %>
@@ -31,7 +31,7 @@
     </ol>
 
 
-    <p>Let me know if you have any comments. Thank you!</p>
+    <p>That's all for now. Have a great weekend!</p>
 
 	— <%= @user.name %>
   <p>Sent via <a href="#">Translucent</a></p>
