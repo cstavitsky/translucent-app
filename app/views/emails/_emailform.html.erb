@@ -1,0 +1,23 @@
+<div class="form-group">
+    <%= f.label :addressee_email, "Boss's Email Address", class: "col-md-4 control-label" %>
+    <%= f.text_field :addressee_email, :value => @user.coworkers.first.email, :id => 'boss-email', class: "form-control", :onkeyup => "bossEmailKeyPress()", :onkeypress => "bossEmailKeyPress()" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :subject_line_beginning_week, "Email Subject Line:", class: "col-md-4 control-label" %>
+  <%= f.text_field :subject_line_beginning_week, :value => "Work plan for this week", :id => 'subject-line', class: "form-control", :onkeyup => "subjectLineKeyPress()", :onkeypress => "subjectLineKeyPress()" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :addressee_name, "Recipient name:", class: "col-md-4 control-label" %>
+    <%= f.text_field :addressee_name, :value => @user.coworkers.first.first_name, :id => 'boss-name', class: "form-control", :onkeyup => "bossNameKeyPress()", :onkeypress => "bossNameKeyPress()" %></p>
+  </div>
+	<div class="form-group">
+    <%= f.label :major_projects, "Major Projects (separate by comma+space):", class: "col-md-4 control-label" %>
+    <%= f.text_field :major_projects, :id => 'text', class: "form-control"  %></p>
+  </div>
+  <div class="form-group">
+    <%= f.label :open_projects, "Open Projects (separate by comma+space):", class: "col-md-4 control-label" %>
+    <%= f.text_field :open_projects, :id => 'text2', class: "form-control"  %>
+  </div>
+  <p>
+  	<%= f.submit "Send email", class: "btn btn-default", data: { confirm: 'Are you ready to send your email to your boss?' }  %>
+  </p>

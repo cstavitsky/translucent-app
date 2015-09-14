@@ -1,0 +1,31 @@
+ <h3>Email preview:</h3>
+    <p>
+      <span id="boss-email-output">
+        (To: <%=@user.coworkers.first.email%>) 
+      </span>
+    </p>
+    <p>
+      <span id="subject-line-output">(Subject line: Work plan for this week) </span>
+    </p>
+    <span id="boss-name-output">Hi <%=@user.coworkers.first.first_name%>, </span>
+    <p>
+      After reviewing my activities here is my plan for the week in order of priority. Let me know if you think I should re-prioritize:
+    </p>
+
+    <h4>Planned Major Activities for the week</h4>
+      <ol>
+          <div id="output"></div>
+      </ol>
+
+    <h4>Open items that I will look into, but won’t get finished this week</h4>
+      <ol>
+          <div id="output2"></div>
+      </ol>
+  
+    <p>
+      Let me know if you have any comments. Thank you!
+    </p>
+    <p>
+      -<%=@user.name.capitalize%><br>
+      Sent via <a href="#">Translucent</a>
+    </p>

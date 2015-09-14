@@ -10,10 +10,51 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.header{
+	height: 50px;
+	width: 100%;
+	display: block;
+}
 
 #output{
 	width: 500px;
 }
+
+.container{
+	width: 550px;
+	border: 1px solid gray;
+	border-radius: 15px;
+	padding: 10px;
+	float:left;
+	margin-left: 100px;
+	display:inline;
+}
+
+.right-container{
+	width: 500px;
+	border: 1px solid gray;
+	border-radius: 15px;
+	padding: 10px;
+	margin-left: 30px;
+	display:inline;
+}
+
+.email-container{
+	border: 1px solid gray;
+	width: 400px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 15px;
+}
+
+.center{
+	margin: 0 auto;
+	width: 600px;
+	text-align: center;
+}
+
