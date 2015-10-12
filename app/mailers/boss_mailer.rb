@@ -9,4 +9,7 @@ class BossMailer < ApplicationMailer
 		mail(to: @email.addressee_email, subject: @email.subject_line_beginning_week, 
 			:cc => @user.email) 
 	end
+
+	def end_week_email
+	end
 end
